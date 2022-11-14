@@ -1,0 +1,26 @@
+.card {
+  border-style: solid;
+  border-color: #df7042;
+  display: inline-block;
+  border-radius: 1rem;
+  border-width: 3px;
+  height: 20rem;
+  width: 20rem;
+  margin: 8px;
+  justify-content: space-around;
+  margin-bottom: 8px;
+  margin-top: 8px;
+  text-align: center;
+  font-family: pokemonSolid;
+  background-color: antiquewhite;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  flex: auto;
+  
+}
+
+.img {
+  width: 180px;
+  height: 220px;
+}

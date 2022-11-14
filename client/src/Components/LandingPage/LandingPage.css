@@ -1,0 +1,33 @@
+.title {
+  margin: auto;
+  text-align: center;
+}
+
+.landing {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  margin-left: 70px;
+  align-content: space-around;
+  font-size: 40px;
+  color: #3f7ca0;
+}
+
+.btn {
+  border-radius: 2rem;
+  color: #3f7ca0;
+  border-color: #3f7ca0;
+  background-color: #df7042;
+  font-size: 40px;
+  font-family: "PokemonSolid";
+  border-width: 1px;
+  cursor: pointer;
+  margin-left: 1rem;
+  margin-top: 160px;
+  border-style: groove;
+  border-block-color: darkred;
+  box-shadow: #3f7ca0 10px;
+}
+
+/* https://img1.freepng.es/20171220/kqw/pokeball-png-5a3a4a7e247ce7.9167778215137695981495.jpg pokeball */
+

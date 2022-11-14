@@ -79,6 +79,7 @@ router.post("/pokemons", async (request, response) => {
   } = request.body;
 
   try {
+    
     if (!name) throw Error("A name needs to be provided to create the Pokemon");
 
     const newPokemon = await Pokemon.create({

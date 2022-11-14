@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -35,4 +35,28 @@
   to {
     transform: rotate(360deg);
   }
+} */
+
+body {
+  background: url("https://wallpaperaccess.com/full/4128725.jpg") no-repeat
+    center center fixed;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
 }
+
+/* body {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: cover;
+  background-image: url("https://wallpaperaccess.com/full/4128725.jpg");
+  
+} */
+/* background-image: url("https://i.pinimg.com/originals/56/60/6e/56606ef5c5860bb627eec04fc19005ca.gif");  */
+
+.font-face-ps {
+  font-family: "PokemonSolid";
+}
+
+

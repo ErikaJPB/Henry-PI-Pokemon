@@ -80,10 +80,17 @@ const Home = (props) => {
 
   return (
     <div>
-      <Link to="/pokemon">Create a Pokemon</Link>
+      
 
       <h1> POKÉMON !</h1>
 
+      <Link to="/pokemon">Create a Pokemon</Link>
+
+
+
+      <SearchBar />
+
+      
       <button
         className="ReloadButton"
         onClick={(event) => {
@@ -93,7 +100,7 @@ const Home = (props) => {
         Reload Page
       </button>
 
-      <SearchBar />
+      
 
       <div>
         <select
@@ -138,15 +145,31 @@ const Home = (props) => {
           ))}
         </select>
 
-        <div className="pokemonCard">
-          {currentPokemons &&
-            currentPokemons.map((p) => (
-              <div key={p.id}>
-                <Card id={p.id} name={p.name} image={p.image} type={p.type} />
-              </div>
-            ))}
-        </div>
+   
 
+
+        <div className="pokemonCard">
+        {
+          currentPokemons && currentPokemons.map(pokemon=> {
+            return (
+              <div>
+              <Link to={"/pokemon/"+ pokemon.id} className="link">
+              <div>
+              <Card 
+              name={pokemon.name[0].toUpperCase() + pokemon.name.substring(1)}
+              image={pokemon.image}
+              type={pokemon.createdInDb ? pokemon.Types.map(type=> type.name[0].toUpperCase() + type.name.substring(1) + " ")
+              : pokemon.type.map(type => type  + " ")}
+              
+              
+              key={pokemon.id} />
+              </div>
+              </Link>
+              </div>
+            )
+          })}
+         
+</div>
         <div className="pagination">
           <Pagination
             pokemonsPerPage={pokemonsPerPage}

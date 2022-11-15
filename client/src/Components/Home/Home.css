@@ -3,12 +3,12 @@
   padding: 0;
 }
 
-h1 {
+ h1 {
   font-family: "PokemonSolid";
   text-align: center;
-  font-size: 50px;
+  font-size: 70px;
   color: #df7042;
-}
+} 
 
 .pokemonCard {
   display:flexbox;
@@ -27,7 +27,7 @@ h1 {
   cursor: pointer;
   justify-content:center;
 }
-
+/* 
 .btn{
     background-color: #df7042;
     color:#3f7ca0;
@@ -35,13 +35,49 @@ h1 {
     font-size: 20px;
     
 
-}
+} */
 
 .ReloadButton {
-  border-style: solid;
-  border-width: 2px;
-  border-color: black;
-  border-radius: 0.3rem;
-  margin-top: 20%;
+  border-radius: 10px;
+  color: #df7042;
+  border-color: #3f7ca0;
+  background-color: antiquewhite;
+  font-size: 18px;
+  font-family: "PokemonSolid";
+  padding: 8px 16px;
+  border-width: 3px;
   cursor: pointer;
+  border-style: outset;
+  border-block-color: darkred;
+  box-shadow: #3f7ca0 15px;
+  text-align: center;
 }
+
+.selector {
+  background-color: antiquewhite;
+ padding: 8px 16px;
+  border-width: 3px;
+  font-size: 24px;
+}
+
+
+/* .card {
+  width: 100px;
+  height: 400px;
+  margin: 30px auto;
+  border-radius: 20px;
+  box-shadow: -11px 11px 1px rgba(196, 58, 88, 0.932);
+  background: #fa782e;
+  background: -moz-linear-gradient(-45deg, #2b2624 8%, #851b20 83%);
+  background: -webkit-linear-gradient(-45deg, #2b2623 8%, #c82930 83%);
+  background: linear-gradient(135deg, #695c562d 8%, #2e2929 83%);
+  padding: 0 20px;
+  font-size:10px;
+  color: rgb(209, 199, 199);
+  padding-bottom: 50px;
+  width: 20em;
+  margin: 40px;
+  display:inline-block;
+  align-items: center;
+  justify-content: center;
+} */

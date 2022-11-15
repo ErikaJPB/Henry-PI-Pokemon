@@ -161,7 +161,7 @@ const CreatePokemon = () => {
           ))}
         </select>
         <ul>
-          <li>{input.type.map((type) => type + " ,")}</li>
+          <li>{input.type.map((type) => type + " ")}</li>
         </ul>
 
         <button type="submit"> Create your Pokemon </button>

@@ -49,12 +49,20 @@ export const getTypes = () => {
 
 export const getDetail = (id) => {
   return async function (dispatch) {
-    return await axios.get(`http://localhost:3001/${id}`).then((response) => {
-      dispatch({
-        type: GET_DETAIL,
-        payload: response.data,
+    return await axios
+      .get(`http://localhost:3001/pokemons/${id}`)
+      .then((response) => {
+        dispatch({
+          type: GET_DETAIL,
+          payload: response.data,
+        });
       });
-    });
+  };
+};
+
+export const clearDetail = () => {
+  return {
+    type: "CLEAR_DETAIL",
   };
 };
 

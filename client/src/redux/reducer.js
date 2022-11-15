@@ -2,6 +2,7 @@ const initialState = {
   pokemons: [],
   allPokemons: [],
   types: [],
+  detail: [],
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -22,6 +23,18 @@ const rootReducer = (state = initialState, action) => {
         allPokemons: action.payload,
       };
 
+    case "GET_DETAIL":
+      return {
+        ...state,
+        detail: action.payload,
+      };
+
+    case "CLEAR_DETAIL":
+      return {
+        ...state,
+        detail: [],
+      };
+
     case "CREATE_POKEMON":
       return { ...state };
 
@@ -32,8 +45,8 @@ const rootReducer = (state = initialState, action) => {
       );
       const dataDb = allPokemons.filter(
         (pokemon) =>
-          pokemon.types &&
-          pokemon.types.map((type) => type.name).includes(action.payload)
+          pokemon.Types &&
+          pokemon.Types.map((type) => type.name).includes(action.payload)
       );
       const ApiDb = [...dataApi, ...dataDb];
 
@@ -67,22 +80,22 @@ const rootReducer = (state = initialState, action) => {
       const sortedArray =
         action.payload === "asc"
           ? state.pokemons.sort((a, b) => {
-              if (a.name > b.name) {
+              if (a.name.toLowerCase() > b.name.toLowerCase()) {
                 return 1;
               }
 
-              if (b.name > a.name) {
+              if (b.name.toLowerCase() > a.name.toLowerCase()) {
                 return -1;
               }
 
               return 0;
             })
           : state.pokemons.sort((a, b) => {
-              if (a.name > b.name) {
+              if (a.name.toLowerCase() > b.name.toLowerCase()) {
                 return -1;
               }
 
-              if (b.name > a.name) {
+              if (b.name.toLowerCase() > a.name.toLowerCase()) {
                 return 1;
               }
 

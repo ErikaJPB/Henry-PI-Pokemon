@@ -17,34 +17,45 @@ import SearchBar from "../SearchBar/SearchBar";
 
 const Home = (props) => {
   const dispatch = useDispatch();
+
+  // We bring the pokemons to our local state, the useSelector hook is the equivalent to the map state to props in a class Component
+
   const allPokemons = useSelector((state) => state.allPokemons);
   const allTypes = useSelector((state) => state.types);
-  // es lo mismo que usar el mapStateToProps
-  const [currentPage, setCurrentPage] = useState(1);
-  const [pokemonsPerPage, setPokemonsPerPage] = useState(12);
 
-  //get current pokemons
+  /* Setting the state of the component. */
+  const [currentPage, setCurrentPage] = useState(1); // current page should initialize in page 1
+  const [pokemonsPerPage, setPokemonsPerPage] = useState(12); // number of items that we want to display on the screen
+
+  // I want to display 12 item per page, for example in page 3 * 12, my index for the last item should be 36.
   const indexOfLastPokemon = currentPage * pokemonsPerPage;
+
+  // on page 3 the index of the first item should be 36 - 12 = 24
   const indexOfFirstPokemon = indexOfLastPokemon - pokemonsPerPage;
+
+  // we have to calculate the previous constants to know where to make the slice so the pokemons can display correctly
   const currentPokemons = allPokemons.slice(
     indexOfFirstPokemon,
     indexOfLastPokemon
   );
 
+  /* Setting the state of the component. */
   const [order, setOrder] = useState("");
   const [ApiorDb, setApiOrDb] = useState("");
   const [type, setType] = useState("");
   const [attack, setAttack] = useState("");
 
+  // this function we are going to pass it for every click
   const paginate = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
+  /* A hook that is similar to the componentDidMount in a class Component. It is going to run the
+dispatch function to get the pokemons and the types. */
 
   useEffect(() => {
     dispatch(getPokemons());
     dispatch(getTypes());
   }, [dispatch]);
-  //igual al mapDispatchToProps
 
   function handleReload(event) {
     event.preventDefault();
@@ -79,18 +90,17 @@ const Home = (props) => {
   }
 
   return (
-    <div>
-      
-
-      <h1> POKÉMON !</h1>
-
-      <Link to="/pokemon">Create a Pokemon</Link>
-
-
+    <div className="background">
+      <button className="btnCreate">
+        <Link to="/pokemon">Create a Pokemon</Link>
+      </button>
+      <div className="title">
+      <h1 className="poke"> POKÉMON </h1>
+      <h2>Gotta Catch 'em All !</h2>
+      </div>
 
       <SearchBar />
 
-      
       <button
         className="ReloadButton"
         onClick={(event) => {
@@ -100,11 +110,9 @@ const Home = (props) => {
         Reload Page
       </button>
 
-      
-
       <div>
         <select
-          className="SelectOne"
+          className="selectOne"
           onChange={(event) => handleFilterByOrder(event)}
         >
           <option value="default">Filter By Order</option>
@@ -113,7 +121,7 @@ const Home = (props) => {
         </select>
 
         <select
-          className="SelectTwo"
+          className="selectTwo"
           onChange={(event) => handleFilterByOrigin(event)}
         >
           <option value="All"> Filter By Origin</option>
@@ -122,7 +130,7 @@ const Home = (props) => {
         </select>
 
         <select
-          className="SelectThree"
+          className="selectThree"
           onChange={(event) => handleFilterByAttack(event)}
         >
           <option value="All">Filter By Attack</option>
@@ -131,7 +139,7 @@ const Home = (props) => {
         </select>
 
         <select
-          className="SelectFour"
+          className="selectFour"
           onChange={(event) => handleFilterByType(event)}
         >
           <option hidden value="All">
@@ -145,36 +153,38 @@ const Home = (props) => {
           ))}
         </select>
 
-   
-
-
         <div className="pokemonCard">
-        {
-          currentPokemons && currentPokemons.map(pokemon=> {
-            return (
-              <div>
-              <Link to={"/pokemon/"+ pokemon.id} className="link">
-              <div>
-              <Card 
-              name={pokemon.name[0].toUpperCase() + pokemon.name.substring(1)}
-              image={pokemon.image}
-              type={pokemon.createdInDb ? pokemon.Types.map(type=> type.name[0].toUpperCase() + type.name.substring(1) + " ")
-              : pokemon.type.map(type => type  + " ")}
-              
-              
-              key={pokemon.id} />
-              </div>
-              </Link>
-              </div>
-            )
-          })}
-         
-</div>
+          {currentPokemons &&
+            currentPokemons.map((pokemon) => {
+              return (
+                
+                    <div>
+                      <Card
+                        name={
+                          pokemon.name[0].toUpperCase() +
+                          pokemon.name.substring(1)
+                        }
+                        image={pokemon.image}
+                        type={
+                          pokemon.createdInDb
+                            ? pokemon.Types.map((type) => type.name + " ")
+                            : pokemon.type.map((type) => type + " ")
+                        }
+                        id ={pokemon.id}
+                        key={pokemon.id}
+                      />
+                  
+                </div>
+              );
+            })}
+        </div>
+
         <div className="pagination">
           <Pagination
             pokemonsPerPage={pokemonsPerPage}
             totalPokemons={allPokemons.length}
             paginate={paginate}
+            currentPage={currentPage}
           />
         </div>
       </div>

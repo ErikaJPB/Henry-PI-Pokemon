@@ -26,7 +26,7 @@ const SearchBar = () => {
     <div>
         <input type="text"
         className="placeholder"
-        placeholder="Search..."
+        placeholder="Search your Pokémon"
         value={pokemonName}
         onChange={(event)=> handleInputChange(event)}
         />

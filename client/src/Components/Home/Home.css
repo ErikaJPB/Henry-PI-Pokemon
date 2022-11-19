@@ -1,83 +1,130 @@
-*{
-  margin:0;
+* {
+  margin: 0;
   padding: 0;
 }
 
- h1 {
+.background {
+  display: cover;
+  background-image: url("https://wallpapercave.com/wp/wp2763507.png");
+  background-position: top;
+  position: absolute;
+  width: 100%;
+  margin: 0%;
+}
+
+.selectOne {
+  display: inline-block;
+  flex-direction: column;
   font-family: "PokemonSolid";
+  font-size: 14px;
+  border: solid;
+  padding: 16px 32px;
   text-align: center;
-  font-size: 70px;
-  color: #df7042;
-} 
+  box-shadow: 3px 3px 13px #fd540d;
+  background-color: antiquewhite;
+  
+}
+
+.selectTwo {
+  display: inline-block;
+  flex-direction: column;
+  font-family: "PokemonSolid";
+  font-size: 14px;
+  border: solid;
+  padding: 16px 32px;
+  margin: 10px 8px;
+  text-align: center;
+  box-shadow: 3px 3px 13px #fd540d;
+  background-color: antiquewhite;
+}
+.selectThree {
+  display: inline-block;
+  flex-direction: column;
+  font-family: "PokemonSolid";
+  font-size: 14px;
+  border: solid;
+  padding: 16px 32px;
+  margin: 10px 8px;
+  text-align: center;
+  box-shadow: 3px 3px 13px #fd540d;
+  background-color: antiquewhite;
+}
+.selectFour {
+  display: inline-block;
+  flex-direction: column;
+  font-family: "PokemonSolid";
+  font-size: 14px;
+  border: solid;
+  padding: 16px 32px;
+  margin: 10px 8px;
+  text-align: center;
+  box-shadow: 3px 3px 13px #fd540d;
+  background-color: antiquewhite;
+}
+
+.btn {
+  display: inline-block;
+  font-family: "PokemonSolid";
+  font-size: 16px;
+  border: solid;
+  padding: 15px 32px;
+  margin: 10px 5px;
+  text-align: center;
+  box-shadow: 3px 3px 13px #fd540d;
+  cursor: pointer;
+  background-color: antiquewhite;
+}
+.ReloadButton {
+  display: flexbox;
+  font-family: "PokemonSolid";
+  align-items: flex-start;
+  font-size: 16px;
+  border: solid;
+  padding: 16px 32px;
+  text-align: center;
+  box-shadow: 3px 3px 13px #fd540d;
+  cursor: pointer;
+  background-color: antiquewhite;
+  /* margin: 10px 5px 1px 2px; */
+  
+}
+
+.btnCreate {
+  display: flexbox;
+  font-family: "PokemonSolid";
+  align-items: flex-end;
+  font-size: 16px;
+  border: solid;
+  padding: 16px 32px;
+  text-align: center;
+  box-shadow: 3px 3px 13px #fd540d;
+  cursor: pointer;
+  background-color: antiquewhite;
+  margin-left: 80%;
+  margin-top: 10px;
+}
 
 .pokemonCard {
-  display:flexbox;
-  flex-direction:column;
-  justify-content: center;
-  width: 15rem;
-  margin-top: 50px;
-  margin-left: 100px;
-
-}
-
-.page {
   display: flex;
-  align-items: center;
-  margin-top: 30px;
-  cursor: pointer;
-  justify-content:center;
-}
-/* 
-.btn{
-    background-color: #df7042;
-    color:#3f7ca0;
-    border-width: 3px;
-    font-size: 20px;
-    
-
-} */
-
-.ReloadButton {
-  border-radius: 10px;
-  color: #df7042;
-  border-color: #3f7ca0;
-  background-color: antiquewhite;
-  font-size: 18px;
-  font-family: "PokemonSolid";
-  padding: 8px 16px;
-  border-width: 3px;
-  cursor: pointer;
-  border-style: outset;
-  border-block-color: darkred;
-  box-shadow: #3f7ca0 15px;
-  text-align: center;
-}
-
-.selector {
-  background-color: antiquewhite;
- padding: 8px 16px;
-  border-width: 3px;
-  font-size: 24px;
-}
-
-
-/* .card {
-  width: 100px;
-  height: 400px;
-  margin: 30px auto;
-  border-radius: 20px;
-  box-shadow: -11px 11px 1px rgba(196, 58, 88, 0.932);
-  background: #fa782e;
-  background: -moz-linear-gradient(-45deg, #2b2624 8%, #851b20 83%);
-  background: -webkit-linear-gradient(-45deg, #2b2623 8%, #c82930 83%);
-  background: linear-gradient(135deg, #695c562d 8%, #2e2929 83%);
-  padding: 0 20px;
-  font-size:10px;
-  color: rgb(209, 199, 199);
-  padding-bottom: 50px;
-  width: 20em;
-  margin: 40px;
-  display:inline-block;
-  align-items: center;
+  flex-wrap: wrap;
   justify-content: center;
-} */
+}
+
+.poke {
+  font-size: 100px;
+ 
+}
+
+h3 {
+  color: #304178;
+  font-size: 30px;
+}
+
+h2 {
+  color: #fd540d;
+  font-size: 15px;
+}
+
+.title {
+  margin-top: 1px;
+}

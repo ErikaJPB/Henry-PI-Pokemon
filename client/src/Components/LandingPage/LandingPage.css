@@ -1,39 +1,34 @@
-
-.landing {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  margin-top: 15%;
-  margin-bottom: 30%;
-  align-content: space-around;
-  font-size: 30px;
-  color: #3f7ca0;
-  align-items: center;
+* {
+  margin: 0;
+  padding: 0;
 }
-
-.btn {
-  border-radius: 10px;
-  color: #df7042;
-  border-color: #3f7ca0;
-  background-color: antiquewhite;
-  font-size: 18px;
-  font-family: "PokemonSolid";
-  padding: 8px 16px;
-  border-width: 3px;
-  cursor: pointer;
-  border-style: outset;
-  border-block-color: darkred;
-  box-shadow: #3f7ca0 15px;
-  text-align: center;
-}
-
-/* https://img1.freepng.es/20171220/kqw/pokeball-png-5a3a4a7e247ce7.9167778215137695981495.jpg pokeball */
-
-body {
-  background: url("https://wallpaperaccess.com/full/4128725.jpg") no-repeat
-    center center fixed;
+.landing-container {
+  display: cover;
+  background-image: url("https://wallpapercave.com/wp/wp2763507.png");
   background-size: cover;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-}   
+  background-position: top;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+h1 {
+  font-family: "PokemonSolid";
+  font-size: 65px;
+  justify-content: center;
+  align-items: center;
+  color: #7f201a;
+}
+
+.landing-btn {
+  display: inline-block;
+  font-family: "PokemonSolid";
+  font-size: 30px;
+  border-radius: 15px;
+  width: 15%;
+  padding: 9px 29px 9px 29px;
+  box-shadow: 3px 3px 13px #fd540d;
+  margin-top: 23%;
+  cursor: pointer;
+  background-color: antiquewhite;
+}

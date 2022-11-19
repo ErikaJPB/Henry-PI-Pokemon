@@ -1,29 +1,51 @@
-.cardD {
-  display: flexbox;
-  border-style: solid;
-  border-color: #df7042;
-  border-radius: 1rem;
-  border-width: 3px;
-  height: 35%;
-  width: 25%;
-  margin: 8px;
-  justify-content: center;
-  margin-bottom: 8px;
-  margin-top: 8px;
-  text-align: center;
-  font-family: pokemonSolid;
-  background-color: antiquewhite;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  flex: auto;
-  position: relative;
-  margin-left: 30%;
+* {
+  margin: 0;
+  padding: 0;
 }
+
+.container-detail {
+  display: cover;
+  background-image: url("https://wallpapercave.com/wp/wp2763507.png");
+  background-position:top;
+  position:absolute;
+  width: 100%;
+  margin: 0%
+}
+
+
+.cardD {
+  display: cover;
+  border-style: solid;
+  border-width: 2px;
+  border-color: black;
+  border-radius: 2rem;
+  background:rgba(255,255,255,.5);
+  height: 80%;
+  width: 32%;
+  flex-direction:column;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  align-content: center;
+  justify-content: center;
+  left: 1%;
+  bottom: 7%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px;
+  font-family: "PokemonSolid";
+}
+
 
 btn {
   display: flex;
   position: relative;
   align-items: center;
   justify-content: center;
+}
+
+.img{
+  align-items: center;
+  justify-content: center;
+
 }

@@ -2,13 +2,12 @@ const express = require("express");
 const axios = require("axios");
 const { Pokemon, Type } = require("../db");
 
-
 /**
- * It takes the first 60 pokemon from the API and pushes their URLs into an array.
+ * It takes the first 40 pokemon from the API and pushes their URLs into an array.
  */
 const getFromApi = async () => {
   const urls = [];
-  const apiUrl = await axios.get("https://pokeapi.co/api/v2/pokemon?limit=60");
+  const apiUrl = await axios.get("https://pokeapi.co/api/v2/pokemon?limit=40");
 
   apiUrl.data.results.forEach((element) => {
     urls.push(axios.get(element.url).then((response) => response.data));
@@ -40,12 +39,14 @@ const getFromApi = async () => {
  * @returns An array of objects.
  */
 const getfromDb = async () => {
+  //"Eager Loading" is the act of querying data of several models at once (one 'main' model and one or more associated models).
   return await Pokemon.findAll({
     include: {
       model: Type,
       attributes: ["name"],
       through: {
-        attributes: [],
+        // you can specify which attributes you want fetched. This is done with the attributes option applied inside the through option of the include
+        attributes: [], //If you don't want anything from the junction table, you can explicitly provide an empty array to the attributes option inside the through option of the include option, and in this case nothing will be fetched and the extra property will not even be created. In this case we pass the [] but is not necessary, because we only have one attribute in the Type, in the case that we have more than one attribute the (attributes:[] ) is necessary because is going to prevent that all the attributes show up. It'll bring only the attributes that we are naming in the include option.
       },
     },
   });

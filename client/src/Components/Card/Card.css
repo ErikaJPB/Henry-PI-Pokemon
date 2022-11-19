@@ -1,25 +1,33 @@
+
 .card {
   border-style: solid;
   border-color: #df7042;
-  display: inline-block;
   border-radius: 1rem;
   border-width: 3px;
-  height: 20rem;
-  width: 20rem;
-  margin: 8px;
-  justify-content: space-around;
+  height: 22rem;
+  width: 22rem;
+  margin: px;
   margin-bottom: 8px;
-  margin-top: 8px;
+  margin-top: 40px;
   text-align: center;
-  font-family: pokemonSolid;
+  font-family: "pokemonSolid";
   background-color: antiquewhite;
-  display: flex;
+  display: cover;
+  position: relative;
+  align-content: center;
+  justify-content: center;
+  left: 1%;
+  bottom: 7%;
+  margin-left: auto;
+  margin-right: 20px;
+  padding: 10px;
+  font-family: "PokemonSolid";
   flex-wrap: wrap;
   flex-direction: row;
   flex: auto;
-  
+  padding: auto;
+  box-shadow: 3px 3px 13px #FD540D;
 }
-
 .img {
   width: 180px;
   height: 220px;

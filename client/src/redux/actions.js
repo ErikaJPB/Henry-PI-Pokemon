@@ -9,6 +9,10 @@ export const FILTER_BY_ORDER = "FILTER_BY_ORDER";
 export const FILTER_BY_ATTACK = "FILTER_BY_ATTACK";
 export const GET_DETAIL = "GET_DETAIL";
 
+/**
+ * It's an async function that returns a promise that dispatches an action with a type and a payload.
+ * @returns An async function that returns a promise.
+ */
 export const getPokemons = () => {
   return async function (dispatch) {
     return await axios
@@ -22,6 +26,12 @@ export const getPokemons = () => {
   };
 };
 
+/**
+ * It's an async function that takes in a name, makes a get request to the server, and then dispatches
+ * the response to the reducer.
+ * @param name - the name of the pokemon you want to search for
+ * @returns an async function that takes in dispatch as a parameter.
+ */
 export const searchName = (name) => {
   return async function (dispatch) {
     return await axios
@@ -35,6 +45,11 @@ export const searchName = (name) => {
       .catch(() => alert(`${name} does not exist`));
   };
 };
+/**
+ * It's an async function that returns a function that dispatches an action that returns a promise that
+ * dispatches an action.
+ * @returns a function.
+ */
 
 export const getTypes = () => {
   return async function (dispatch) {
@@ -47,6 +62,12 @@ export const getTypes = () => {
   };
 };
 
+/**
+ * It's an async function that returns a promise that dispatches an action with a payload of the
+ * response data from the axios request.
+ * @param id - the id of the pokemon you want to get the details of
+ * @returns the async function.
+ */
 export const getDetail = (id) => {
   return async function (dispatch) {
     return await axios
@@ -66,6 +87,11 @@ export const clearDetail = () => {
   };
 };
 
+/**
+ * It takes a payload, and returns a function that takes a dispatch, and returns a response.
+ * @param payload - {
+ * @returns The response from the server.
+ */
 export const createPokemon = (payload) => {
   return async function (dispatch) {
     const response = await axios.post(
@@ -75,6 +101,11 @@ export const createPokemon = (payload) => {
     return response;
   };
 };
+/**
+ * This function takes a payload and returns an object with a type and a payload.
+ * @param payload - {
+ * @returns An object with a type and a payload.
+ */
 
 export const filterByType = (payload) => {
   return {
@@ -83,6 +114,11 @@ export const filterByType = (payload) => {
   };
 };
 
+/**
+ * It takes a payload and returns an object with a type and the payload.
+ * @param payload - {
+ * @returns An object with a type and a payload.
+ */
 export const filterByApiDb = (payload) => {
   return {
     type: FILTER_BY_API_DB,
@@ -90,6 +126,11 @@ export const filterByApiDb = (payload) => {
   };
 };
 
+/**
+ * It takes a payload and returns an object with a type and a payload.
+ * @param payload - {
+ * @returns An object with a type and a payload.
+ */
 export const filterByOrder = (payload) => {
   return {
     type: FILTER_BY_ORDER,
@@ -97,6 +138,11 @@ export const filterByOrder = (payload) => {
   };
 };
 
+/**
+ * It takes a payload, and returns an object with a type and a payload.
+ * @param payload - {
+ * @returns An object with a type and a payload.
+ */
 export const filterByAttack = (payload) => {
   return {
     type: FILTER_BY_ATTACK,

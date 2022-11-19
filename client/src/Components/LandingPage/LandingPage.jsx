@@ -6,13 +6,14 @@ const LandingPage = () => {
  
 
   return (
-    <div className="landing">
-    <h1 className="font-face-ps"> Welcome to the Pokémon World !</h1>
+    <div className="landing-container">
+    <h1> Welcome to the Pokémon World !</h1>
     <Link to ="/home"> 
-    <button className="btn">
-    Gotta catch 'em all!
+    <button className=" landing-btn">
+    ENTER
     </button></Link>
     </div>
+    
   );
 };
 

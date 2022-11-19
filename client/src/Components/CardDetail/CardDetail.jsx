@@ -4,6 +4,7 @@ import { useParams, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import "./CardDetail.css";
+import Loading from "../Loading/Loading";
 
 const CardDetail = (props) => {
   const dispatch = useDispatch();
@@ -16,11 +17,12 @@ const CardDetail = (props) => {
   console.log(history)
 
   useEffect(() => {
+    dispatch(clearDetail());
     dispatch(getDetail(id));
   }, [dispatch, id]);
 
   const myPokemon = useSelector((state) => state.detail);
-  console.log(myPokemon)
+  
 
   function handleBack(event) {
     event.preventDefault();
@@ -29,14 +31,15 @@ const CardDetail = (props) => {
   }
 
   return (
-    <div>
-      {myPokemon.length > 0 ? (
+    <div className="container-detail">
+      { myPokemon.length > 0 ? (
         <div className="cardD">
           <h2>
             {myPokemon[0].name.toUpperCase()}
           </h2>
 
           <img
+            className="img"
             src={
               myPokemon[0].image
                 ? myPokemon[0].image
@@ -46,6 +49,7 @@ const CardDetail = (props) => {
             alt="Not found"
             width="200px"
             height="300px"
+           
           />
 
           <h3>
@@ -70,14 +74,14 @@ const CardDetail = (props) => {
           <h5>
             Weight: <span>{myPokemon[0].weight}</span>
           </h5>
-        </div>
-      ) : (
-        <p>Loading... </p>
-      )}
-
-      <button className="btn" onClick={(event) => handleBack(event)}>
+          <button className="btn" onClick={(event) => handleBack(event)}>
         Back
       </button>
+        </div>
+      ) : <div><Loading/></div>
+      }
+
+  
     </div>
   );
 };

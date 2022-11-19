@@ -2,6 +2,8 @@ const { DataTypes } = require("sequelize");
 
 // Exportamos una funcion que define el modelo
 // Luego le injectamos la conexion a sequelize.
+
+/* Defining the model. */
 module.exports = (sequelize) => {
   // defino el modelo
   sequelize.define(
@@ -12,7 +14,8 @@ module.exports = (sequelize) => {
       //   primaryKey: true,
       //   defaultValue: DataTypes.UUIDV4,
       // },
-      // no se le pasa el id porq no estoy creando otro tipo de type aparte del que aparece en la base de datos.. con el id solito de pokemon ya alcanza
+
+      //We don't pass the id because we are not creating a new class of type, is the same type that appears at the API.
 
       name: {
         type: DataTypes.STRING,

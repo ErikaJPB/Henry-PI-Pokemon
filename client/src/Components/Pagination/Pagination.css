@@ -1,3 +1,15 @@
-
+.btn{
+    display:inline-block;
+    font-family: "PokemonSolid";
+    font-size: 30px;
+    border:solid;
+    padding:10px 42px;
+    margin:3px 1px;
+    text-align: center;
+    box-shadow: 3px 3px 13px #FD540D;
+    margin-top:10%;
+    cursor:pointer;
+    background-color: antiquewhite;
+}
   
       

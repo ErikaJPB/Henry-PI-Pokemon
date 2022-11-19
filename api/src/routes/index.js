@@ -46,18 +46,21 @@ router.get("/pokemons/:id", async (request, response) => {
 /* Getting the types from the api and then saving them in the database. */
 
 router.get("/types", async (request, response) => {
+ 
   const url = await axios.get("https://pokeapi.co/api/v2/type");
 
   const types = url.data.results.map((element) => element.name);
 
+  /* Creating the types in the database. */
   types.forEach((type) => {
-    Type.findOrCreate({
+    Type.findOrCreate({ // we can't use the create alone because is going to create everytime that we run the server.
       where: {
         name: type,
       },
     });
   });
 
+  /* Getting all the types from the database and then sending them to the client. */
   const allTypes = await Type.findAll();
   response.status(200).send(allTypes);
 });
@@ -79,7 +82,6 @@ router.post("/pokemons", async (request, response) => {
   } = request.body;
 
   try {
-    
     if (!name) throw Error("A name needs to be provided to create the Pokemon");
 
     const newPokemon = await Pokemon.create({
@@ -110,17 +112,17 @@ router.post("/pokemons", async (request, response) => {
 
 /* Deleting the pokemon from the database. */
 
-router.delete("/pokemons", async (request, response) => {
-  try {
-    const { id } = request.body;
+// router.delete("/pokemons", async (request, response) => {
+//   try {
+//     const { id } = request.body;
 
-    const pokemon = await Pokemon.findByPk(id);
+//     const pokemon = await Pokemon.findByPk(id);
 
-    await pokemon.destroy();
-    response.status(200).send("Pokemon was deleted succesfully");
-  } catch (err) {
-    response.status(400).send("We could not delete the Pokemon");
-  }
-});
+//     await pokemon.destroy();
+//     response.status(200).send("Pokemon was deleted succesfully");
+//   } catch (err) {
+//     response.status(400).send("We could not delete the Pokemon");
+//   }
+// });
 
 module.exports = router;

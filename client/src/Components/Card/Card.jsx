@@ -1,24 +1,26 @@
 import React from "react";
 import "./Card.css";
+import { Link } from "react-router-dom"
 
-const Card = ({ name, image, type }) => {
+const Card = ({ name, image, type, id }) => {
   return (
     <div className="card">
-      <h3>{name.toUpperCase()}</h3>
+    <Link to = {`/pokemon/${id}`}>
+      <h3>{name[0].toUpperCase() + name.substring(1)}</h3>
+      </Link>
       <img
         className="img"
         src={
           image
-            ? image = image
+            ? (image = image)
             : (image =
-              "https://giffiles.alphacoders.com/212/212514.gif")
+                "https://external-preview.redd.it/SbiB64fgeEMoGhPH4Us5Ou7K6GH8LmDsZ70lvlrO_W8.jpg?auto=webp&s=9cee852d42920fdf4d83b5a52ab90fe05b8f7c25")
         }
         alt="Not found"
         width="175px"
         height="100px"
-        
       />
-      <h2>{type[0].toUpperCase()}</h2>
+      <h3>Type: {type}</h3>
     </div>
   );
 };

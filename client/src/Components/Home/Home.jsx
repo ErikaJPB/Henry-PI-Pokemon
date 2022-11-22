@@ -189,8 +189,9 @@ const Home = (props) => {
               );
             })}
         </div>
-
+             
         <div className="pagination">
+          { /* A component that is going to display the pagination buttons. */ }
           <Pagination
             pokemonsPerPage={pokemonsPerPage}
             totalPokemons={allPokemons.length}

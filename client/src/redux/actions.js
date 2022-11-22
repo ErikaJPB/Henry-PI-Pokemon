@@ -82,6 +82,31 @@ export const getTypes = () => {
   };
 };
 
+
+
+/**
+ * It's an async function that returns a function that takes a dispatch function as an argument. 
+ * 
+ * The function that takes a dispatch function as an argument makes an API call to the server and then
+ * dispatches an action to the reducer. 
+ * 
+ * The reducer then updates the state. 
+ * 
+ * The state is then passed to the component as props. 
+ * 
+ * The component then renders the data.
+ * @returns An object with a function that takes dispatch as an argument.
+ */
+// export const getTypes = () => {
+//   return async function (dispatch) {
+//     const response = await axios.get("http://localhost:3001/types")
+//     dispatch({
+//       type: GET_TYPES,
+//       payload: response.data
+//     })
+//   }
+// }
+
 /**
  * It's an async function that returns a promise that dispatches an action with a payload of the
  * response data from the axios request.

@@ -1,9 +1,9 @@
+const express = require("express");
 const { Router } = require("express");
 const axios = require("axios");
-const { Pokemon, Type } = require("../db");
-const { getFromApi, getfromDb, getAllPokemons } = require("./controllers");
-const express = require("express");
 const router = Router();
+const { Pokemon, Type } = require("../db");
+const { getAllPokemons } = require("./controllers");
 
 /* Getting all the pokemons from the database and if there is a name in the query it will filter the
 pokemons by name. */

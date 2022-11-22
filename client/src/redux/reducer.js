@@ -123,33 +123,33 @@ const rootReducer = (state = initialState, action) => {
         pokemons: sortedArray,
       };
 
-    /* Sorting the pokemons by attack. */
+ /* Sorting the pokemons by attack. */
+ 
     case "FILTER_BY_ATTACK":
-      const sortedAttack =
-        action.payload === "max"
-          ? state.pokemons.sort((a, b) => {
-              if (a.attack < b.attack) {
-                return 1;
-              }
-              if (b.attack < a.attack) {
-                return -1;
-              }
-              return 0;
-            })
-          : state.pokemons.sort((a, b) => {
-              if (a.attack < b.attack) {
-                return -1;
-              }
-              if (b.attack < a.attack) {
-                return 1;
-              }
-
-              return 0;
-            });
-
+      if (action.payload === "max") {
+        state.pokemons.sort((a, b) => {
+          if (a.attack < b.attack) {
+            return 1;
+          }
+          if (b.attack < a.attack) {
+            return -1;
+          }
+          return 0;
+        });
+      } else {
+        state.pokemons.sort((a, b) => {
+          if (a.attack < b.attack) {
+            return -1;
+          }
+          if (b.attack < a.attack) {
+            return 1;
+          }
+          return 0;
+        });
+      }
       return {
         ...state,
-        pokemons: sortedAttack,
+        pokemons: state.pokemons,
       };
 
     default:

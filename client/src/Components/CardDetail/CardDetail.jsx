@@ -10,12 +10,11 @@ const CardDetail = (props) => {
   const dispatch = useDispatch();
 
   // props.match.params.id
- /* Getting the id from the url. */
+  /* Getting the id from the url. */
   const params = useParams();
   console.log(params);
   const { id } = params;
   const history = useHistory();
- 
 
   /* A hook that is called when the component is mounted. It is used to dispatch the clearDetail and
   getDetail actions. */

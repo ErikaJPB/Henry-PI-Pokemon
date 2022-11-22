@@ -25,7 +25,7 @@ const rootReducer = (state = initialState, action) => {
     case "GET_TYPES":
       return { ...state, types: action.payload };
 
-   /* Filtering the pokemons by name. */
+    /* Filtering the pokemons by name. */
     case "SEARCH_BY_NAME":
       return {
         ...state,
@@ -38,7 +38,7 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         detail: action.payload,
       };
-/* Clearing the detail of the pokemon. */
+    /* Clearing the detail of the pokemon. */
 
     case "CLEAR_DETAIL":
       return {
@@ -46,13 +46,13 @@ const rootReducer = (state = initialState, action) => {
         detail: [],
       };
 
-    
+    /* Not doing anything. It is just a placeholder for the future. */
     case "CREATE_POKEMON":
       return { ...state };
 
     /* Filtering the pokemons by type. */
     case "FILTER_BY_TYPE":
-      const allPokemons = state.allPokemons;
+      const allPokemons = state.pokemons;
       const dataApi = allPokemons.filter(
         (pokemon) => pokemon.type && pokemon.type.includes(action.payload)
       );
@@ -66,8 +66,9 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         allPokemons: ApiDb,
+        pokemon: ApiDb,
       };
-/* Filtering the pokemons by API or DB. */
+    /* Filtering the pokemons by API or DB. */
 
     case "FILTER_BY_API_DB":
       if (action.payload === "Api") {
@@ -155,4 +156,5 @@ const rootReducer = (state = initialState, action) => {
       return { ...state };
   }
 };
+
 export default rootReducer;

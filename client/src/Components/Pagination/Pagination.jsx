@@ -5,7 +5,7 @@ const Pagination = ({ pokemonsPerPage, totalPokemons, paginate, currentPage }) =
   const pageNumbers = [];
 
   for (let i = 1; i <= Math.ceil(totalPokemons / pokemonsPerPage); i++) {
-    // 60 aprox / 12
+    // 40 aprox / 12 = 3.33 
     pageNumbers.push(i);
   }
 
@@ -24,10 +24,12 @@ const Pagination = ({ pokemonsPerPage, totalPokemons, paginate, currentPage }) =
   return (
     <nav>
       <ul className="page">
-        {/* to render the pagination.. if array has something that it should.. we are going to map and for each number it should have a button with the paginate number */}
+       
         <button className="btn" onClick={() => handlePrevBtn()}>
           Prev
         </button>
+
+         {/* to render the pagination.. if array has something that it should.. we are going to map and for each number it should have a button with the paginate number */}
 
         {pageNumbers &&
           pageNumbers.map((number) => (

@@ -62,6 +62,19 @@
   background-color: antiquewhite;
 }
 
+.selectFive{
+  display: inline-block;
+  flex-direction: column;
+  font-family: "PokemonSolid";
+  font-size: 14px;
+  border: solid;
+  padding: 16px 32px;
+  margin: 10px 8px;
+  text-align: center;
+  box-shadow: 3px 3px 13px #fd540d;
+  background-color: antiquewhite;
+}
+
 .btn {
   display: inline-block;
   font-family: "PokemonSolid";

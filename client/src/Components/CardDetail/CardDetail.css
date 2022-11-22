@@ -6,36 +6,38 @@
 .container-detail {
   display: cover;
   background-image: url("https://wallpapercave.com/wp/wp2763507.png");
-  background-position:top;
-  position:absolute;
+  background-position: top;
+  background-repeat: repeat;
+  position: absolute;
   width: 100%;
-  margin: 0%
+  height: 120%;
+  margin: auto;
 }
-
 
 .cardD {
   display: cover;
+  background-position: 2rem;
   border-style: solid;
-  border-width: 2px;
+  border-width: 3px;
   border-color: black;
   border-radius: 2rem;
-  background:rgba(255,255,255,.5);
-  height: 80%;
-  width: 32%;
-  flex-direction:column;
+  background: rgba(255, 255, 255, 0.5);
+  height: 82%;
+  width: 34%;
+  flex-direction: column;
   justify-content: center;
   text-align: center;
   position: relative;
   align-content: center;
   justify-content: center;
   left: 1%;
-  bottom: 7%;
+  margin-top: 30px;
   margin-left: auto;
   margin-right: auto;
-  padding: 10px;
+  margin-bottom: 30px;
+  padding: 10px 32px 9px 9px;
   font-family: "PokemonSolid";
 }
-
 
 btn {
   display: flex;
@@ -44,8 +46,32 @@ btn {
   justify-content: center;
 }
 
-.img{
+.img {
   align-items: center;
   justify-content: center;
+}
 
+.statsOne {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.statsTwo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.statsBackground {
+  border: solid;
+  border-radius: 5px;
+  border-color: rgb(50, 49, 49);
+  background-color: #fcd4c2;
+  align-items: center;
+  justify-content: space-around;
+  padding: 4px 4px 5px 5px;
+  margin: 10px 10px;
 }

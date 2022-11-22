@@ -16,6 +16,12 @@ import Pagination from "../Pagination/Pagination.jsx";
 import SearchBar from "../SearchBar/SearchBar";
 
 const Home = (props) => {
+  // HOOKS
+  //useSelector --> mapStatetoProps --> it takes a function as an argument that returns the part of the state that we want.
+  // useDispatch --> mapDispatchToProps --> it'll dispatch all the actions imported from the actions folder.
+  //useState --> it adss an internal state to our component so they can be interactive and dynamic.
+  //useEffect --> it takes care of the life cycle of our component.
+
   const dispatch = useDispatch();
 
   // We bring the pokemons to our local state, the useSelector hook is the equivalent to the map state to props in a class Component
@@ -39,7 +45,13 @@ const Home = (props) => {
     indexOfLastPokemon
   );
 
+  // Page 1 -->  card 1 to card 12 [0, 11]
+  // Page 2 -->  card 13 to card 24 [12, 23]
+  // Page 3 --> card 25 to  card 36  [24, 35]
+  // Page 4 ---> card 37 to card 40 [36, 39]
+
   /* Setting the state of the component. */
+  // Setting an internal state of the component for every filter or sort we are going to do.
   const [order, setOrder] = useState("");
   const [ApiorDb, setApiOrDb] = useState("");
   const [type, setType] = useState("");
@@ -49,9 +61,11 @@ const Home = (props) => {
   const paginate = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
-  /* A hook that is similar to the componentDidMount in a class Component. It is going to run the
-dispatch function to get the pokemons and the types. */
 
+  //---------------------------------------
+
+  /* A hook that is similar to the componentDidMount in a class Component. It is going to run the dispatch function to get the pokemons and the types. */
+  //Equivalent to map dispatch to props in a class component
   useEffect(() => {
     dispatch(getPokemons());
     dispatch(getTypes());
@@ -62,24 +76,17 @@ dispatch function to get the pokemons and the types. */
     dispatch(getPokemons());
   }
 
-  function handleFilterByType(event) {
+  function handleFilterByOrder(event) {
     event.preventDefault();
-    dispatch(filterByType(event.target.value));
+    dispatch(filterByOrder(event.target.value));
     setCurrentPage(1);
-    setType(event.target.value);
+    setOrder(event.target.value);
   }
 
   function handleFilterByOrigin(event) {
     dispatch(filterByApiDb(event.target.value));
     setCurrentPage(1);
     setApiOrDb(event.target.value);
-  }
-
-  function handleFilterByOrder(event) {
-    event.preventDefault();
-    dispatch(filterByOrder(event.target.value));
-    setCurrentPage(1);
-    setOrder(event.target.value);
   }
 
   function handleFilterByAttack(event) {
@@ -89,14 +96,21 @@ dispatch function to get the pokemons and the types. */
     setAttack(event.target.value);
   }
 
+  function handleFilterByType(event) {
+    event.preventDefault();
+    dispatch(filterByType(event.target.value));
+    setCurrentPage(1);
+    setType(event.target.value);
+  }
+
   return (
     <div className="background">
       <button className="btnCreate">
         <Link to="/pokemon">Create a Pokemon</Link>
       </button>
       <div className="title">
-      <h1 className="poke"> POKÉMON </h1>
-      <h2>Gotta Catch 'em All !</h2>
+        <h1 className="poke"> POKÉMON </h1>
+        <h2>Gotta Catch 'em All !</h2>
       </div>
 
       <SearchBar />
@@ -126,7 +140,7 @@ dispatch function to get the pokemons and the types. */
         >
           <option value="All"> Filter By Origin</option>
           <option value="Db">DataBase</option>
-          <option value="API">API</option>
+          <option value="Api">API</option>
         </select>
 
         <select
@@ -157,23 +171,20 @@ dispatch function to get the pokemons and the types. */
           {currentPokemons &&
             currentPokemons.map((pokemon) => {
               return (
-                
-                    <div>
-                      <Card
-                        name={
-                          pokemon.name[0].toUpperCase() +
-                          pokemon.name.substring(1)
-                        }
-                        image={pokemon.image}
-                        type={
-                          pokemon.createdInDb
-                            ? pokemon.Types.map((type) => type.name + " ")
-                            : pokemon.type.map((type) => type + " ")
-                        }
-                        id ={pokemon.id}
-                        key={pokemon.id}
-                      />
-                  
+                <div>
+                  <Card
+                    name={
+                      pokemon.name[0].toUpperCase() + pokemon.name.substring(1)
+                    }
+                    image={pokemon.image}
+                    type={
+                      pokemon.createdInDb
+                        ? pokemon.Types.map((type) => type.name + " ")
+                        : pokemon.type.map((type) => type + " ")
+                    }
+                    id={pokemon.id}
+                    key={pokemon.id}
+                  />
                 </div>
               );
             })}

@@ -46,14 +46,14 @@ router.get("/pokemons/:id", async (request, response) => {
 /* Getting the types from the api and then saving them in the database. */
 
 router.get("/types", async (request, response) => {
- 
   const url = await axios.get("https://pokeapi.co/api/v2/type");
 
   const types = url.data.results.map((element) => element.name);
 
   /* Creating the types in the database. */
   types.forEach((type) => {
-    Type.findOrCreate({ // we can't use the create alone because is going to create everytime that we run the server.
+    Type.findOrCreate({
+      // we can't use the create alone because is going to create everytime that we run the server.
       where: {
         name: type,
       },
@@ -96,6 +96,7 @@ router.post("/pokemons", async (request, response) => {
       createdInDb,
     });
 
+    // the type we are going to find it inside the model that we already created.
     let typeDb = await Type.findAll({
       where: {
         name: type,

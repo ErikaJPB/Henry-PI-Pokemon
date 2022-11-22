@@ -27,15 +27,35 @@ export const getPokemons = () => {
 };
 
 /**
+ * It's an async function that returns a fetch request to the server, then it returns the response as
+ * json, then it dispatches the data to the reducer.
+ * @returns An object with a function that takes in dispatch as a parameter.
+ */
+// export const getPokemons = () => {
+//   return async function (dispatch) {
+//     return await fetch("http://localhost:3001/pokemons")
+//       .then((response) => response.json())
+//       .then((data) =>
+//         dispatch({
+//           type: GET_POKEMONS,
+//           payload: data,
+//         })
+//       )
+//       .catch(() => alert("Information could not be retrieve at the moment"));
+//   };
+// };
+
+/**
  * It's an async function that takes in a name, makes a get request to the server, and then dispatches
  * the response to the reducer.
  * @param name - the name of the pokemon you want to search for
  * @returns an async function that takes in dispatch as a parameter.
  */
+
 export const searchName = (name) => {
   return async function (dispatch) {
     return await axios
-      .get("http://localhost:3001/pokemons?name=" + name)
+      .get(`http://localhost:3001/pokemons?name=${name}`)
       .then((response) => {
         dispatch({
           type: SEARCH_BY_NAME,

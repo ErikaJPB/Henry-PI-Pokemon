@@ -156,12 +156,12 @@ const Home = (props) => {
           className="selectFour"
           onChange={(event) => handleFilterByType(event)}
         >
-          <option hidden value="All">
+          <option value="All">
             Filter by types
           </option>
 
           {allTypes.map((type) => (
-            <option value={type.name} key={type.name}>
+            <option value={type.name} key={type.id}>
               {type.name[0].toUpperCase() + type.name.substring(1)}
             </option>
           ))}

@@ -49,7 +49,7 @@ const CardDetail = (props) => {
               myPokemon[0].image
                 ? myPokemon[0].image
                 : (myPokemon.img =
-                    "https://images.wikidexcdn.net/mwuploads/wikidex/thumb/f/f8/latest/20150711053154/EE14_Pok%C3%A9_Ball.png/220px-EE14_Pok%C3%A9_Ball.png")
+                    "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Pokebola-pokeball-png-0.png/800px-Pokebola-pokeball-png-0.png")
             }
             alt="Not found"
             width="200px"

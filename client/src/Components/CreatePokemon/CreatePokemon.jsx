@@ -49,10 +49,12 @@ const CreatePokemon = () => {
    * It takes the event from the select and adds it to the input.type array.
    */
   function handleSelect(event) {
-    setInput({
-      ...input,
-      type: [...input.type, event.target.value],
-    });
+    if (!input.type.includes(event.target.value)) {
+      setInput({
+        ...input,
+        type: [...input.type, event.target.value],
+      });
+    }
   }
 
   /**

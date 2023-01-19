@@ -1,11 +1,16 @@
 import React from "react";
 
-const Pagination = ({ pokemonsPerPage, totalPokemons, paginate, currentPage }) => {
+const Pagination = ({
+  pokemonsPerPage,
+  totalPokemons,
+  paginate,
+  currentPage,
+}) => {
   // constant with total number of pages
   const pageNumbers = [];
 
   for (let i = 1; i <= Math.ceil(totalPokemons / pokemonsPerPage); i++) {
-    // 40 aprox / 12 = 3.33 
+    // 40 aprox / 12 = 3.33
     pageNumbers.push(i);
   }
 
@@ -15,21 +20,18 @@ const Pagination = ({ pokemonsPerPage, totalPokemons, paginate, currentPage }) =
 
   function handleNextBtn() {
     paginate(
-      currentPage < pageNumbers.length
-        ? currentPage + 1
-        : pageNumbers.length
+      currentPage < pageNumbers.length ? currentPage + 1 : pageNumbers.length
     );
   }
 
   return (
     <nav>
       <ul className="page">
-       
         <button className="btn" onClick={() => handlePrevBtn()}>
           Prev
         </button>
 
-         {/* to render the pagination.. if array has something that it should.. we are going to map and for each number it should have a button with the paginate number */}
+        {/* to render the pagination.. if array has something that it should.. we are going to map and for each number it should have a button with the paginate number */}
 
         {pageNumbers &&
           pageNumbers.map((number) => (

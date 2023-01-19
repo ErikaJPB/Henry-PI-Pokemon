@@ -82,18 +82,16 @@ export const getTypes = () => {
   };
 };
 
-
-
 /**
- * It's an async function that returns a function that takes a dispatch function as an argument. 
- * 
+ * It's an async function that returns a function that takes a dispatch function as an argument.
+ *
  * The function that takes a dispatch function as an argument makes an API call to the server and then
- * dispatches an action to the reducer. 
- * 
- * The reducer then updates the state. 
- * 
- * The state is then passed to the component as props. 
- * 
+ * dispatches an action to the reducer.
+ *
+ * The reducer then updates the state.
+ *
+ * The state is then passed to the component as props.
+ *
  * The component then renders the data.
  * @returns An object with a function that takes dispatch as an argument.
  */

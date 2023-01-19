@@ -21,9 +21,11 @@ const rootReducer = (state = initialState, action) => {
         allPokemons: action.payload,
       };
 
+
     /* Getting the types from the API and storing them in the state. */
     case "GET_TYPES":
       return { ...state, types: action.payload };
+
 
     /* Filtering the pokemons by name. */
     case "SEARCH_BY_NAME":
@@ -38,13 +40,15 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         detail: action.payload,
       };
-    /* Clearing the detail of the pokemon. */
 
+
+    /* Clearing the detail of the pokemon. */
     case "CLEAR_DETAIL":
       return {
         ...state,
         detail: [],
       };
+
 
     /* Not doing anything. It is just a placeholder for the future. */
     case "CREATE_POKEMON":
@@ -68,8 +72,10 @@ const rootReducer = (state = initialState, action) => {
         allPokemons: ApiDb,
         pokemon: ApiDb,
       };
-    /* Filtering the pokemons by API or DB. */
 
+
+
+    /* Filtering the pokemons by API or DB. */
     case "FILTER_BY_API_DB":
       if (action.payload === "Api") {
         state.allPokemons = state.pokemons.filter(
@@ -123,8 +129,8 @@ const rootReducer = (state = initialState, action) => {
         pokemons: sortedArray,
       };
 
- /* Sorting the pokemons by attack. */
- 
+
+    /* Sorting the pokemons by attack. */
     case "FILTER_BY_ATTACK":
       if (action.payload === "max") {
         state.pokemons.sort((a, b) => {

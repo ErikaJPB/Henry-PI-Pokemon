@@ -10,7 +10,7 @@
   background-repeat: repeat;
   position: absolute;
   width: 100%;
-  height: 120%;
+  height: 130%;
   margin: auto;
 }
 
@@ -74,4 +74,25 @@ btn {
   justify-content: space-around;
   padding: 4px 4px 5px 5px;
   margin: 10px 10px;
+}
+
+@media (max-width: 600px) {
+  .cardD {
+    width: 80%;
+    height: 85%;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 768px) {
+  .cardD {
+    width: 80%;
+    height: 65%;
+  }
+}
+
+@media (min-width: 769px) {
+  .cardD {
+    width: 50%;
+    height: 75%;
+  }
 }

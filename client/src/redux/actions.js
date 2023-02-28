@@ -15,14 +15,12 @@ export const GET_DETAIL = "GET_DETAIL";
  */
 export const getPokemons = () => {
   return async function (dispatch) {
-    return await axios
-      .get("http://localhost:3001/pokemons")
-      .then((response) => {
-        dispatch({
-          type: GET_POKEMONS,
-          payload: response.data,
-        });
+    return await axios.get("/pokemons").then((response) => {
+      dispatch({
+        type: GET_POKEMONS,
+        payload: response.data,
       });
+    });
   };
 };
 
@@ -55,7 +53,7 @@ export const getPokemons = () => {
 export const searchName = (name) => {
   return async function (dispatch) {
     return await axios
-      .get(`http://localhost:3001/pokemons?name=${name}`)
+      .get(`/pokemons?name=${name}`)
       .then((response) => {
         dispatch({
           type: SEARCH_BY_NAME,
@@ -73,7 +71,7 @@ export const searchName = (name) => {
 
 export const getTypes = () => {
   return async function (dispatch) {
-    return await axios.get("http://localhost:3001/types").then((response) => {
+    return await axios.get("/types").then((response) => {
       dispatch({
         type: GET_TYPES,
         payload: response.data,
@@ -113,14 +111,12 @@ export const getTypes = () => {
  */
 export const getDetail = (id) => {
   return async function (dispatch) {
-    return await axios
-      .get(`http://localhost:3001/pokemons/${id}`)
-      .then((response) => {
-        dispatch({
-          type: GET_DETAIL,
-          payload: response.data,
-        });
+    return await axios.get(`/pokemons/${id}`).then((response) => {
+      dispatch({
+        type: GET_DETAIL,
+        payload: response.data,
       });
+    });
   };
 };
 
@@ -137,10 +133,7 @@ export const clearDetail = () => {
  */
 export const createPokemon = (payload) => {
   return async function (dispatch) {
-    const response = await axios.post(
-      "http://localhost:3001/pokemons",
-      payload
-    );
+    const response = await axios.post("/pokemons", payload);
     return response;
   };
 };
